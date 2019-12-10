@@ -1,0 +1,94 @@
+1. time domain, pressure acoustics, frequency domain (time dependent), amplitude from each time. frequency domain first and later time domain
+2. monopole domain source
+3, Study1 frequency
+add data to export, and export.
+
+
+
+i need to figure out why one is 100% reconstruction and the other one is 90%. It is because of diffraction limits.
+how big is the suitable frequency for our reconstruction. Compressing sensing with point spread function.
+I need to think about whether it is a reasonable physics set up about testing the bubble when it is very closed to each other,
+the point spread function will also overlap which means it may not be able to differentiate the exact location of each bubble
+just from the distribution of the amplitude.
+
+normalize the largest one (amplitude) to some kind of constant value or just 1.
+
+different color means different amplitude. 0 is still 0, but 1 can be any nonzero value.
+
+check about the physics set up by first creating situation that 
+
+higher capablilty.
+
+Need to read paper very seriously now. For all the three papers.
+
+
+Paper 1: Sparsity-driven super-resolution in clinical contrast-enhanced ultrasound:
+Some key sentences:
+1. By pinpointing individual isolated MBs (inert gas microbubbles) with high precision across many frames, one can circumvent the diffraction limit
+and reconstruct an image at a 10-fold increase in resolution.
+
+Problem:
+
+Some abbreviation:
+CEUS: clinically acquired contrast-enhanced ultrasound (CEUS) images.
+FPALM: dluorescence photo-activated localization microscopy
+MBs: inert gas microbubbles
+SOFI: super-resolution optical fluctuation imaging.
+SUSHI: sparsity-based ultrasonic super resolution hemodynamic imaging.
+FISTA: Fast iterative shrinkage thresholding algorithm
+
+
+MAIN IDEA: 
+In this paper, we apply sparse signal recovery techniques to attain super resolution to attain super resolution on highly dense, clinically acquired contrast-enhanced ultrasound (CEUS) images.
+
+Extremely sparse subsets of MBs are evaluated acoss thousands of frames by using a very low MB dose and imaging for  very long time. This is not practical in clinical routine.
+
+Solutions:
+1. high frame-rate imaging (x) (because a long acquisition times are still required)
+2. more practically, increase the density of MBs to a clinical dose (x, this causes the POINT-SPREAD-FUNCTION of bubbles to overlap severely, invalidating the widely
+used single-particle localization methods)
+
+In optics, a similar trade-off between acquisition time and localization accuracty was addressed by the inroduction of super-resolution optical fluctuation imaging(SOFI), which features a moderate resolution
+gain within short acquisition times.
+
+In fluorescence microscopy, several similar strategies have been developed for emitter localization in highly dense scenarios:
+1. Fitting clusters of overlapped spots with a fixed number of point-spread-recovery
+2. Sparse-recovery (This efficiently enables high-density localization by the combination of inverse image reconstruction with an additional regularization that imposes sparisty of the solution.)
+
+Explain about the methods:
+Method: Apply similar sparse signal recovery techniques to attain super-resolution on highly dense, clinically acquiredin-vivo CEUS images of a human prostate.
+Details: By modeling an invidiual CEUS frame as the convolution of the MB distributions with the system point spread function (PSF),
+            CEUS = MB distribution * system point spread function
+            we employ sparse reconstruction techniques (like a frame-by-frame
+            implementation of SUSHI), to recover the MB positions even in scenarios with extensive overlap.
+
+
+Paper 2: Super-resolution Ultrasound Localization Microscopy through Deep Learning (fast)
+This paper presents a fast and precise method for obtaining super-resolution vascular images from high-density contrast-enhanced ultrasound imaging data.
+
+Problem:
+Analysis of high-density regions with significant overlaps among the microbubble point spread responses yields high localization errors, constraining the technique to low-concentration conditions.
+And then long acquisition times are required to sufficiently cover the vascular bed with low concentration conditions
+
+Some abbreviation:
+Deep-ULM: Deep Ultrasound Localization Microscopy
+CEUS: clinically acquired contrast-enhanced ultrasound (CEUS) images.
+FPALM: dluorescence photo-activated localization microscopy
+MBs: inert gas microbubbles
+SOFI: super-resolution optical fluctuation imaging.
+SUSHI: sparsity-based ultrasonic super resolution hemodynamic imaging.
+FISTA: Fast iterative shrinkage thresholding algorithm
+
+Key sentences:
+1. By pinpointing individual microbubbles from diffraction-limited ultrasound data across a large sequence of imaging frames with sparse microbubble populations, i.e. low contrast-concentration, 
+    and combining all these position estimates into one frame, a super-resolved image is produced. 
+
+2. Algorithms based on sparse recovery have been developed specifically to cope with the overlapping point spread functions of multiple microbubbles.
+These strategies pose the localization task as a sparse image recovery problem, in which bubbles with overlapping PSFs but distinct sparse locations on a dense grid can be resolved.
+
+3. ULM avoids the trade-off between resolution and penetration depth, but it gives rise to a new trade-off that balances localization precision, microbubble concentration and acquisition time.
+
+
+
+
+

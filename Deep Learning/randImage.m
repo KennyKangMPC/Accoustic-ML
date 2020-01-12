@@ -5,11 +5,11 @@ them. Here is the main routine
 close all
 clear;
 clc;
-
 %% Declare parameter
 x = input('source width: ');
 y = input('source length: ');
 d = input('distance between two sources: ');
+h = input('image size: ');
 ro = input('overlaps starting density: ');
 n = input('number of source: ');
 ni = input('sample size: ');

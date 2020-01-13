@@ -9,11 +9,14 @@ clc;
 x = input('source width: ');
 y = input('source length: ');
 d = input('distance between two sources: ');
-h = input('image size: ');
+h = input('image size: '); % default gives 500
 ro = input('overlaps starting density: ');
 n = input('number of source: ');
 ni = input('sample size: ');
 %% Generate list of random 0-1 (guarantee no repetitive)
 randPool = randGen(ni, n, ro);
 %% Plot and save images for later training
-imCreater(randPool, x, y, d, h);
+isDone = imCreater(randPool, x, y, d, h);
+if isDone
+    disp('Finish Producing images')
+end

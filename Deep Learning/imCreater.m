@@ -8,15 +8,16 @@ x: source width
 y: source height
 d: distance between two sources
 h: image size
-
 %}
-function imCreater(ops, x, y, d, h)
+function isDone = imCreater(ops, x, y, d, h)
 mkdir('./figs')
+numDig = floor(log10(size(ops,1))+1);
+format= ['%0' num2str(numDig) '.f'];
 for k=1:size(ops,1)
     f = plot_Source(ops(k,:), x, y, d, h);
     %TODO: remember to change this 03 to some other numbers
-    saveas(f,['./figs/' num2str(1,'%03.f') '.jpg'],'jpg')
+    saveas(f,['./figs/' num2str(k, format) '.jpg'],'jpg')
 end
-
+isDone = 1;
 end
 

@@ -5,6 +5,12 @@ them. Here is the main routine
 close all
 clear;
 clc;
+
+%% Read datafile
+fn1 = input('file name: ','s');
+T = readtable(fn);
+T = table2array(T(8:size(T,1),:));
+
 %% Declare parameter
 x = input('source width: ');
 y = input('source length: ');

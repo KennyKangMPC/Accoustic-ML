@@ -1,12 +1,10 @@
 %{
-
 parameters:
 ops: array of this sources image
 x: source width
 y: source height
 d: distance between two sources
 h: image size
-
 % Here the image parameters need to be modified
 %}
 

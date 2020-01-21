@@ -1,7 +1,6 @@
 %{
 This subroutine is used to produce images of sources and saves them to
 a specific directory and can be later utlized for deep learning evaluation
-
 parameters:
 ops: binary array of sources location
 x: source width
@@ -20,4 +19,3 @@ for k=1:size(ops,1)
 end
 isDone = 1;
 end
-

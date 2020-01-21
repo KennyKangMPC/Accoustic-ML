@@ -1,5 +1,6 @@
 %{
 Subroutine generate random list of 0-1
+T: comosol simulation dataset transferred into matrix
 ni: sample size
 ns: number of source
 minD : density (minimum number of ones)
@@ -33,7 +34,10 @@ end
 
 % This algorithm works, but worse then the one above.
 % This algorithm actually is pretty fast lmao
-function ranList = randGen(ni,ns,minD)
+function ranField, ranList = randGen(T, ni,ns,minD)
+
+
+ranField = [];
 pos = 1:ns;
 ranList = [];
 for i = minD:ns
@@ -51,4 +55,3 @@ if size(ranList,1) > ni
 end
 end
     
-

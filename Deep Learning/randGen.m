@@ -34,10 +34,7 @@ end
 
 % This algorithm works, but worse then the one above.
 % This algorithm actually is pretty fast lmao
-function ranField, ranList = randGen(T, ni,ns,minD)
-
-
-ranField = [];
+function [ranField, ranList] = randGen(T, ni,ns,minD)
 pos = 1:ns;
 ranList = [];
 for i = minD:ns
@@ -53,5 +50,19 @@ temp = ranList(randperm(size(ranList, 1)), :); % rand shuffle
 if size(ranList,1) > ni
     ranList = temp(1:ni,:);
 end
+
+% Each raw represents a combination based on linear algebra
+% Generate corresponding pressure field using matrix multiplcation
+% Large size, using parallel programming?
+% http://www.cs.utexas.edu/users/flame/pubs/2D3DFinal.pdf
+
+ranField = rabList * T;
+
+% Normalization this field: Large Scale again
+ranField = abs(ranField);
+
+% Ask this one to make sure it is correct
+ranField = normalize(ranField, 'range');
+
 end
     

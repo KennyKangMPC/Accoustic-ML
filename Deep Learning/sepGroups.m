@@ -9,7 +9,7 @@ return value:
 T: after normalization, matrix form.
 
 %}
-function T = sepGroups(T_arg, T_abs)
+function p_wave = sepGroups(T_arg, T_abs)
 
 % swap data type from cell to  matrix
 abs = [];
@@ -22,15 +22,18 @@ for i = 1:size(T_arg,1)
 end
 
 % transfer to matrix. Each raw represents to a point
-T = [];
 group_abs = [];
 group_phase = [];
 thresh = 1E-10;
 [raws,cols] = find(abs <= thresh);
 
-for i = 1:length(raws)-1
+% The matrix only has two cols
+for i = 1:length(cols)-1
     group_abs = vertcat(group_abs,abs(raws(i):raws(i+1)-1,2)');
     group_phase = vertcat(group_phase,arg(raws(i):raws(i+1)-1,2)');
 end
+
+% Calculate wave pressure
+p_wave = group_abs .* exp(group_phase*1j);
 
 end
